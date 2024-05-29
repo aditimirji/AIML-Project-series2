@@ -1,0 +1,13 @@
+<!-- aiml_files/standard/admission.aiml -->
+<aiml>
+    <category>
+        <pattern>LOAD AIML</pattern>
+        <template>
+            <!-- Provide a response indicating that AIML files are being loaded -->
+            <random>
+                <li>I'm currently loading the AIML files.</li>
+                <li>AIML files are being loaded.</li>
+            </random>
+        </template>
+    </category>
+</aiml>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Admission Chatbot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #chatbox {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>College Admission Chatbot</h1>
+    <div>
+        <input type="text" id="user_input" placeholder="Ask me about admissions...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div id="chatbox"></div>
+
+    <script>
+        $(document).ready(function() {
+            function sendMessage() {
+                var user_input = $("#user_input").val().trim(); // Trim whitespace
+                if (user_input !== '') {
+                    $.get("/get", { msg: user_input }).done(function(data) {
+                        $("#chatbox").append("<div><strong>You:</strong> " + user_input + "</div>");
+                        $("#chatbox").append("<div><strong>Bot:</strong> " + data + "</div>");
+                        $("#user_input").val('');
+                        // Scroll to bottom of chatbox
+                        $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+                    });
+                }
+            }
+
+            $("#user_input").keypress(function(event) {
+                // Detect Enter key press
+                if (event.which == 13) {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

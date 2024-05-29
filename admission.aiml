@@ -1,0 +1,52 @@
+<aiml version="1.0.1" encoding="UTF-8">
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            Hello! I can help you with college admission queries. Ask me about admission procedures, requirements, or deadlines.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>HOW DO I APPLY FOR ADMISSION</pattern>
+        <template>
+            To apply for admission, you need to fill out the online application form, submit required documents such as transcripts and letters of recommendation, and pay the application fee. Do you need help with any specific step?
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT ARE THE ADMISSION REQUIREMENTS</pattern>
+        <template>
+            Admission requirements include a high school diploma, a minimum GPA, standardized test scores (SAT/ACT), and letters of recommendation. Specific requirements may vary by program. Which program are you interested in?
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHEN IS THE DEADLINE TO APPLY</pattern>
+        <template>
+            Application deadlines vary by program and semester. Generally, the deadline for the fall semester is July 1st and for the spring semester is November 1st. Do you need information on a specific program's deadline?
+        </template>
+    </category>
+
+    <category>
+        <pattern>I AM INTERESTED IN <set name="program"><star/></set></pattern>
+        <template>
+            Great! You are interested in <star/>. I can provide more details on the admission requirements and deadlines for the <get name="program"/> program.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT ARE THE ADMISSION REQUIREMENTS FOR <get name="program"/></pattern>
+        <template>
+            The admission requirements for the <get name="program"/> program include a high school diploma, a minimum GPA of 3.0, SAT/ACT scores, and two letters of recommendation. Do you need more details on any of these?
+        </template>
+    </category>
+
+    <category>
+        <pattern>I DID NOT UNDERSTAND THAT</pattern>
+        <template>
+            I'm sorry, I didn't understand that. Could you please rephrase or ask another question?
+        </template>
+    </category>
+
+
+</aiml>
